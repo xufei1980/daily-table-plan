@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Table Plan</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="authShell" class="auth-shell">
+      <form id="loginForm" class="login-card">
+        <p class="eyebrow">Staff Login</p>
+        <h1>Table Plan</h1>
+        <label class="field">
+          <span>Username or email</span>
+          <input id="loginName" type="text" autocomplete="username" required />
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input id="loginPassword" type="password" autocomplete="current-password" required />
+        </label>
+        <button type="submit">Log In</button>
+        <p id="loginStatus" class="login-status">Connect Supabase, then log in with a teacher account.</p>
+      </form>
+    </section>
+
+    <main id="appShell" class="app-shell hidden">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Daily Planning</p>
+          <h1>Table Plan</h1>
+        </div>
+        <div class="header-tools">
+          <div class="auth-tools">
+            <span id="currentUser">Signed in</span>
+            <button id="signOutButton" class="secondary" type="button">Log Out</button>
+          </div>
+          <div class="date-tools">
+            <button id="prevDay" class="icon-button" type="button" aria-label="Previous day">‹</button>
+            <div class="weekday-card">
+              <span>Day</span>
+              <strong id="weekdayLabel">Thursday</strong>
+            </div>
+            <label class="date-field">
+              <span>Date</span>
+              <input id="planDate" type="date" />
+            </label>
+            <button id="nextDay" class="icon-button" type="button" aria-label="Next day">›</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Plan actions">
+        <div class="tabs" role="tablist" aria-label="Plan sections">
+          <button id="insideTab" class="tab active" type="button" data-zone="inside">Inside</button>
+          <button id="outsideTab" class="tab" type="button" data-zone="outside">Outside</button>
+        </div>
+        <div class="actions">
+          <button id="duplicateYesterday" class="secondary" type="button">Use Yesterday</button>
+          <button id="clearDay" class="secondary danger" type="button">Clear Day</button>
+          <button id="printPlan" class="secondary" type="button">Print</button>
+          <button id="savePlan" type="button">Save Plan</button>
+        </div>
+      </section>
+
+      <section class="status-row" aria-live="polite">
+        <span id="saveStatus">Ready</span>
+      </section>
+
+      <section class="print-heading" aria-hidden="true">
+        <p id="printDate"></p>
+        <h2 id="printTitle">Inside Plan</h2>
+      </section>
+
+      <section id="zonePanel" class="zone-panel" aria-label="Selected zone plan"></section>
+    </main>
+
+    <template id="activityTemplate">
+      <article class="activity-item">
+        <div class="activity-head">
+          <h2></h2>
+          <label class="photo-button">
+            <input type="file" accept="image/*" />
+            <span>Add Photo</span>
+          </label>
+        </div>
+        <textarea rows="4" placeholder="Set up activity"></textarea>
+        <figure class="preview hidden">
+          <img alt="" />
+          <button type="button" class="remove-photo">Remove</button>
+        </figure>
+      </article>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
