@@ -4,7 +4,7 @@ const TABLE_NAME = "daily_plans";
 const USERNAME_DOMAIN = "tableplan.local";
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-const TEACHERS = ["Fleur", "Jinhee", "Nikita", "Ashi", "Felix"];
+const TEACHERS = ["Fleur", "Jihee", "Nikita", "Ashi", "Felix"];
 const ZONES = {
   inside: [
     "Art table",
